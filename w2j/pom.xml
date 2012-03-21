@@ -31,14 +31,15 @@
     	<version>3.0.1</version>
     </dependency>
     <dependency>
-    	<groupId>org.apache.xmlbeans</groupId>
-    	<artifactId>xmlbeans</artifactId>
-    	<version>2.5.0</version>
-    </dependency>
-    <dependency>
     	<groupId>org.apache.axis2</groupId>
     	<artifactId>axis2</artifactId>
     	<version>1.6.1</version>
+    </dependency>
+
+    <dependency>
+    	<groupId>org.apache.xmlbeans</groupId>
+    	<artifactId>xmlbeans</artifactId>
+    	<version>2.5.0</version>
     </dependency>
     <dependency>
     	<groupId>org.apache.ws.commons.axiom</groupId>
@@ -55,6 +56,7 @@
     	<artifactId>wsdl4j</artifactId>
     	<version>1.6.2</version>
     </dependency>
+
   </dependencies>
   <build>
 	   <plugins>
