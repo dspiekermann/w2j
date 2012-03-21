@@ -62,20 +62,57 @@
 	           <groupId>org.apache.axis2</groupId>
 	           <artifactId>axis2-wsdl2code-maven-plugin</artifactId>
 	           <version>1.6.1</version>
+               <configuration>
+                   <packageName>de.rlm.wsdl</packageName>
+                   <wsdlFile>src/main/wsdl/BLZService.wsdl</wsdlFile>
+                   <databindingName>adb</databindingName>
+                   <generateTestcase>true</generateTestcase>
+                   <overWrite>true</overWrite>
+                   <unpackClasses>false</unpackClasses>
+               </configuration>
 	           <executions>
 	               <execution>
+	               	   <phase>generate-sources</phase>
 	                   <goals>
 	                       <goal>wsdl2code</goal>
 	                   </goals>
-	                   <configuration>
-	                       <packageName>de.rlm.wsdl</packageName>
-	                       <wsdlFile>src/main/wsdl/BLZService.wsdl</wsdlFile>
-	                       <databindingName>xmlbeans</databindingName>
-	                   </configuration>
 	               </execution>
 	           </executions>
 	       </plugin>
 	   </plugins>    
     <finalName>w2j</finalName>
+    <pluginManagement>
+    	<plugins>
+    		<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+    		<plugin>
+    			<groupId>org.eclipse.m2e</groupId>
+    			<artifactId>lifecycle-mapping</artifactId>
+    			<version>1.0.0</version>
+    			<configuration>
+    				<lifecycleMappingMetadata>
+    					<pluginExecutions>
+    						<pluginExecution>
+    							<pluginExecutionFilter>
+    								<groupId>org.apache.axis2</groupId>
+    								<artifactId>
+    									axis2-wsdl2code-maven-plugin
+    								</artifactId>
+    								<versionRange>
+    									[1.6.1,)
+    								</versionRange>
+    								<goals>
+    									<goal>wsdl2code</goal>
+    								</goals>
+    							</pluginExecutionFilter>
+    							<action>
+    								<ignore></ignore>
+    							</action>
+    						</pluginExecution>
+    					</pluginExecutions>
+    				</lifecycleMappingMetadata>
+    			</configuration>
+    		</plugin>
+    	</plugins>
+    </pluginManagement>
   </build>
 </project>

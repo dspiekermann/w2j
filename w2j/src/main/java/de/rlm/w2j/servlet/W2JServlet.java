@@ -13,6 +13,13 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import de.rlm.wsdl.BLZServiceStub;
+import de.rlm.wsdl.BLZServiceStub.DetailsType;
+import de.rlm.wsdl.BLZServiceStub.GetBank;
+import de.rlm.wsdl.BLZServiceStub.GetBankResponse;
+import de.rlm.wsdl.BLZServiceStub.GetBankResponseType;
+import de.rlm.wsdl.BLZServiceStub.GetBankType;
+
 /**
  * Servlet implementation class W2JServlet
  */
@@ -42,6 +49,21 @@ public class W2JServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		LOG.info("servlet post");
+		
+		BLZServiceStub blzService = new BLZServiceStub();
+		GetBank getBank = new GetBank();
+		GetBankType getBankType = new GetBankType();
+		getBankType.setBlz("37050198");
+		getBank.setGetBank(getBankType);
+		GetBankResponse getBankResponse = blzService.getBank(getBank);
+		GetBankResponseType getBankResponseType = getBankResponse.getGetBankResponse();
+		DetailsType detailsType = getBankResponseType.getDetails();
+		String bezeichnung = detailsType.getBezeichnung();
+		String bic = detailsType.getBic();
+		String ort = detailsType.getOrt();
+		String plz = detailsType.getPlz();
+		
+		LOG.info(bezeichnung + ' ' + bic + ' ' + ort + ' ' + plz);
 	}
 
 }

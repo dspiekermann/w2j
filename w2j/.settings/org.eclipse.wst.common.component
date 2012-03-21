@@ -4,6 +4,8 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/" source-path="/src/main/webapp"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/target/generated-sources/axis2/wsdl2code/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/test"/>
         <property name="context-root" value="w2j"/>
         <property name="java-output-path" value="/w2j/target/classes"/>
     </wb-module>
