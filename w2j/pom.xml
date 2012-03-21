@@ -30,8 +30,33 @@
     	<artifactId>javax.servlet-api</artifactId>
     	<version>3.0.1</version>
     </dependency>
+    <dependency>
+    	<groupId>org.apache.axis2</groupId>
+    	<artifactId>axis2</artifactId>
+    	<version>1.6.1</version>
+    	<type>pom</type>
+    </dependency>
   </dependencies>
   <build>
+	   <plugins>
+	       <plugin>
+	           <groupId>org.apache.axis2</groupId>
+	           <artifactId>axis2-wsdl2code-maven-plugin</artifactId>
+	           <version>1.6.1</version>
+	           <executions>
+	               <execution>
+	                   <goals>
+	                       <goal>wsdl2code</goal>
+	                   </goals>
+	                   <configuration>
+	                       <packageName>de.rlm.wsdl</packageName>
+	                       <wsdlFile>src/main/wsdl/BLZService.wsdl</wsdlFile>
+	                       <databindingName>xmlbeans</databindingName>
+	                   </configuration>
+	               </execution>
+	           </executions>
+	       </plugin>
+	   </plugins>    
     <finalName>w2j</finalName>
   </build>
 </project>
