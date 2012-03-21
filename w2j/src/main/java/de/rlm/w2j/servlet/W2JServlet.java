@@ -63,7 +63,9 @@ public class W2JServlet extends HttpServlet {
 		String ort = detailsType.getOrt();
 		String plz = detailsType.getPlz();
 		
-		LOG.info(bezeichnung + ' ' + bic + ' ' + ort + ' ' + plz);
+		String message = bezeichnung + ' ' + bic + ' ' + ort + ' ' + plz;
+		LOG.info(message);
+		response.getWriter().write(message);
 	}
 
 }
